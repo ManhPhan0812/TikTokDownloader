@@ -44,7 +44,7 @@ COPY license /app/license
 COPY main.py /app/main.py
 
 # 暴露端口
-EXPOSE 5555
+EXPOSE 5556
 
 # 创建挂载点
 VOLUME /app/Volume

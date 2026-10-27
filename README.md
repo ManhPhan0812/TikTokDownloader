@@ -102,7 +102,7 @@
 *****
 ![WebAPI模式截图](docs/screenshot/WebAPI模式截图CN2.png)
 
-> **启动该模式后，访问 `http://127.0.0.1:5555/docs` 或者 `http://127.0.0.1:5555/redoc` 可以查阅自动生成的文档！**
+> **启动该模式后，访问 `http://127.0.0.1:5556/docs` 或者 `http://127.0.0.1:5556/redoc` 可以查阅自动生成的文档！**
 
 ### API 调用示例代码
 
@@ -117,7 +117,7 @@ def demo():
         "detail_id": "0123456789",
         "pages": 2,
     }
-    api = "http://127.0.0.1:5555/douyin/comment"
+    api = "http://127.0.0.1:5556/douyin/comment"
     response = post(api, json=data, headers=headers)
     print(response.json())
 
@@ -188,7 +188,7 @@ demo()
 <li>方式二：使用 <code>docker pull joeanamier/tiktok-downloader</code> 命令拉取镜像</li>
 <li>方式三：使用 <code>docker pull ghcr.io/joeanamier/tiktok-downloader</code> 命令拉取镜像</li>
 </ul>
-<li>创建容器：<code>docker run --name 容器名称(可选) -p 主机端口号:5555 -v tiktok_downloader_volume:/app/Volume -it &lt;镜像名称&gt;</code>
+<li>创建容器：<code>docker run --name 容器名称(可选) -p 主机端口号:5556 -v tiktok_downloader_volume:/app/Volume -it &lt;镜像名称&gt;</code>
 </li>
 <br><b>注意：</b>此处的 <code>&lt;镜像名称&gt;</code> 需与您在第一步中使用的镜像名称保持一致（例如 <code>joeanamier/tiktok-downloader</code> 或 <code>ghcr.io/joeanamier/tiktok-downloader</code>）
 <li>运行容器

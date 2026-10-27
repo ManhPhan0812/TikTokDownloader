@@ -70,7 +70,7 @@
 <li>方式二：使用 <code>docker pull joeanamier/tiktok-downloader</code> 命令拉取镜像</li>
 <li>方式三：使用 <code>docker pull ghcr.io/joeanamier/tiktok-downloader</code> 命令拉取镜像</li>
 </ul>
-<li>创建容器：<code>docker run --name 容器名称(可选) -p 主机端口号:5555 -v tiktok_downloader_volume:/app/Volume -it &lt;镜像名称&gt;</code>
+<li>创建容器：<code>docker run --name 容器名称(可选) -p 主机端口号:5556 -v tiktok_downloader_volume:/app/Volume -it &lt;镜像名称&gt;</code>
 </li>
 <br><b>注意：</b>此处的 <code>&lt;镜像名称&gt;</code> 需与您在第一步中使用的镜像名称保持一致（例如 <code>joeanamier/tiktok-downloader</code> 或 <code>ghcr.io/joeanamier/tiktok-downloader</code>）
 <li>运行容器
@@ -1194,7 +1194,7 @@ built with gcc 14.2.0 (crosstool-NG 1.27.0.18_7458341)
 <h2>Web API 接口模式</h2>
 <p>启动服务器，提供 API 调用功能；支持局域网远程访问，可以部署至私有服务器或者公开服务器，远程部署建议设置参数验证，防止恶意请求！</p>
 <p>默认禁用局域网访问，如需开启，请修改 <code>src/custom/static.py</code> 文件的 <code>SERVER_HOST</code> 变量。</p>
-<p><strong>启动该模式后，访问 <code>http://127.0.0.1:5555/docs</code> 或者 <code>http://127.0.0.1:5555/redoc</code> 可以查阅自动生成的文档！</strong></p>
+<p><strong>启动该模式后，访问 <code>http://127.0.0.1:5556/docs</code> 或者 <code>http://127.0.0.1:5556/redoc</code> 可以查阅自动生成的文档！</strong></p>
 <h3>API 调用示例代码</h3>
 
 ```python
@@ -1208,7 +1208,7 @@ def demo():
         "detail_id": "0123456789",
         "pages": 2,
     }
-    api = "http://127.0.0.1:5555/douyin/comment"
+    api = "http://127.0.0.1:5556/douyin/comment"
     response = post(api, json=data, headers=headers)
     print(response.json())
 

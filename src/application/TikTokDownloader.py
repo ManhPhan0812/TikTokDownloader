@@ -148,8 +148,12 @@ class TikTokDownloader:
     async def server(self):
         try:
             self.console.print(
+                # 保留原文作为翻译键，运行时替换为实际配置的端口
                 _(
                     "访问 http://127.0.0.1:5555/docs 或者 http://127.0.0.1:5555/redoc 可以查阅 API 模式说明文档！"
+                ).replace(
+                    "5555",
+                    str(SERVER_PORT),
                 ),
                 highlight=True,
             )
