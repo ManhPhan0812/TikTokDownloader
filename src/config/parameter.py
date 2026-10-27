@@ -1025,6 +1025,9 @@ class Parameter:
         return browser_info | new_info
 
     def set_browser_info(self, browser_info: dict, browser_info_tiktok: dict):
+        # browser_info 可能为 None(未配置), 此处需要兼容
+        browser_info = browser_info or {}
+        browser_info_tiktok = browser_info_tiktok or {}
         self.impersonate = browser_info.pop(
             "impersonate",
             IMPERSONATE,
