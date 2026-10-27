@@ -33,6 +33,9 @@ class Extractor:
     detail_discover = compile(
         r"\S*?https://www\.douyin\.com/discover\S*?modal_id=(\d{19})\S*?"
     )  # 首页作品链接
+    detail_modal = compile(
+        r"\S*?https://www\.douyin\.com/[^\s]*?\bmodal_id=(\d{19})\S*?"
+    )  # 任意页面(精选/推荐/热榜等)通过 modal_id 打开的作品
 
     mix_link = compile(
         r"\S*?https://www\.douyin\.com/collection/(\d{19})\S*?"
@@ -144,7 +147,11 @@ class Extractor:
         search = self.extract_info(self.detail_search, urls, 1)
         discover = self.extract_info(self.detail_discover, urls, 1)
         channel = self.extract_info(self.channel_link, urls, 1)
-        return link + share + account + search + discover + channel
+        modal = self.extract_info(self.detail_modal, urls, 1)
+        # dict.fromkeys 去重并保留顺序
+        return list(
+            dict.fromkeys(link + share + account + search + discover + channel + modal)
+        )
 
     @staticmethod
     def extract_sec_user_id(urls: list[str]) -> list[list]:
